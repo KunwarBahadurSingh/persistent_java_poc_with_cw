@@ -1,0 +1,99 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ISearchJobsService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.persistent.jobportal.service</a>
+</div>
+
+<h1>Coverage Summary for Class: ISearchJobsService (com.persistent.jobportal.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ISearchJobsService</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.persistent.jobportal.service;
+&nbsp;
+&nbsp;import com.persistent.jobportal.entity.Jobs;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;//Create Interface for ISearchJobsService
+&nbsp;public interface ISearchJobsService {
+&nbsp;
+&nbsp;    //create a method all searchJobs as list
+&nbsp;    public List&lt;Jobs&gt; searchJobs();
+&nbsp;
+&nbsp;
+&nbsp;    //Create a method searchJobs by jobID
+&nbsp;    public Jobs searchJobsByJobId(long jobId);
+&nbsp;
+&nbsp;    //Create a method searchJobs by jobTitle as list
+&nbsp;    public List&lt;Jobs&gt; searchJobsByJobTitle(String jobTitle);
+&nbsp;
+&nbsp;
+&nbsp;    //Create a method searchJobs by Location
+&nbsp;    public List&lt;Jobs&gt; searchJobsByJobLocation(String jobLocation);
+&nbsp;
+&nbsp;    //Create a method searchJobs by Skills
+&nbsp;    public List&lt;Jobs&gt; searchJobsByJobSkills(String jobSkills);
+&nbsp;
+&nbsp;    //Create a method searchJobs by Company
+&nbsp;    public List&lt;Jobs&gt; searchJobsByJobCompany(String jobCompany);
+&nbsp;
+&nbsp;    //create a method searchJobs by jobDescription
+&nbsp;    public List&lt;Jobs&gt; searchJobsByJobDescription(String jobDescription);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-06 17:09</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SearchJobsController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.persistent.jobportal.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: SearchJobsController (com.persistent.jobportal.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchJobsController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.2%
+  </span>
+  <span class="absValue">
+    (15/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.persistent.jobportal.controller;
+&nbsp;
+&nbsp;import com.persistent.jobportal.entity.Jobs;
+&nbsp;import com.persistent.jobportal.service.impl.SearchJobsServiceImpl;
+&nbsp;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@CrossOrigin(origins = &quot;*&quot;, allowedHeaders = &quot;*&quot;)
+&nbsp;@RequestMapping(&quot;/api/v1/jobs&quot;)
+<b class="fc">&nbsp;public class SearchJobsController {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private SearchJobsServiceImpl searchJobsServiceImpl;
+&nbsp;
+&nbsp;    // create method for searching all jobs
+&nbsp;    @GetMapping(&quot;/all&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;Jobs&gt;&gt; searchJobs() {
+<b class="fc">&nbsp;          List&lt;Jobs&gt; jobs = searchJobsServiceImpl.searchJobs();</b>
+<b class="fc">&nbsp;         return new ResponseEntity&lt;List&lt;Jobs&gt;&gt;(jobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    //create method for searching by jobID
+&nbsp;    @GetMapping(&quot;/jobId/{jobId}&quot;)
+&nbsp;    public ResponseEntity&lt;Jobs&gt; searchJobsByJobId(@PathVariable(&quot;jobId&quot;) Long jobId) {
+<b class="fc">&nbsp;        Jobs searchJobs = searchJobsServiceImpl.searchJobsByJobId(jobId);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;Jobs&gt;(searchJobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // create method for searching jobs by location
+&nbsp;    @GetMapping(&quot;/location/{location}&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;Jobs&gt;&gt; searchJobsByLocation(@PathVariable(&quot;location&quot;)  String location) {
+<b class="fc">&nbsp;        List&lt;Jobs&gt; searchJobs = searchJobsServiceImpl.searchJobsByJobLocation(location);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;List&lt;Jobs&gt;&gt;(searchJobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //create method for searching jobs by skill
+&nbsp;    @GetMapping(&quot;/jobSkills/{jobSkills}&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;Jobs&gt;&gt; searchJobsBySkill(@PathVariable(&quot;jobSkills&quot;)
+&nbsp;                                                            String jobSkills) {
+<b class="fc">&nbsp;        List&lt;Jobs&gt; searchJobs = searchJobsServiceImpl.searchJobsByJobSkills(jobSkills);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;List&lt;Jobs&gt;&gt;(searchJobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //create method for searching jobs by job title
+&nbsp;    @GetMapping(&quot;/jobTitle/{jobTitle}&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;Jobs&gt;&gt; searchJobsByTitle(@PathVariable(&quot;jobTitle&quot;) String jobTitle) {
+<b class="fc">&nbsp;        List&lt;Jobs&gt; searchJobs = searchJobsServiceImpl.searchJobsByJobTitle(jobTitle);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;List&lt;Jobs&gt;&gt;(searchJobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //create method for searching jobs by company
+&nbsp;    @GetMapping(&quot;/company/{company}&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;Jobs&gt;&gt; searchJobsByCompany(@PathVariable(&quot;company&quot;) String company) {
+<b class="fc">&nbsp;        List&lt;Jobs&gt; searchJobs = searchJobsServiceImpl.searchJobsByJobCompany(company);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;List&lt;Jobs&gt;&gt;(searchJobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //create method for searching jobs by jobDescription
+&nbsp;    @GetMapping(&quot;/description/{description}&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;Jobs&gt;&gt; searchJobsByDescription(@PathVariable(&quot;jobDescription&quot;) String jobDescription) {
+<b class="nc">&nbsp;        List&lt;Jobs&gt; searchJobs = searchJobsServiceImpl.searchJobsByJobDescription(jobDescription);</b>
+<b class="nc">&nbsp;        return new ResponseEntity&lt;List&lt;Jobs&gt;&gt;(searchJobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // create searchjob
+&nbsp;    @PostMapping(&quot;/createjob&quot;)
+&nbsp;    public ResponseEntity&lt;Jobs&gt; createJob(@RequestBody Jobs jobs) {
+<b class="fc">&nbsp;        Jobs searchJobs = searchJobsServiceImpl.searchJob(jobs);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;Jobs&gt;(searchJobs, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-06 17:09</div>
+</div>
+</body>
+</html>

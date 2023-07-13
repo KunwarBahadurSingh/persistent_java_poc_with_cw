@@ -1,0 +1,97 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > IUsersService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.persistent.jobportal.service</a>
+</div>
+
+<h1>Coverage Summary for Class: IUsersService (com.persistent.jobportal.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IUsersService</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.persistent.jobportal.service;
+&nbsp;
+&nbsp;import com.persistent.jobportal.entity.Users;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public interface IUsersService {
+&nbsp;    //verify user based on email and password
+&nbsp;    public Users verifyUser(String email, String password);
+&nbsp;
+&nbsp;    //fetch user based on email
+&nbsp;    public Users fetchUser(String email);
+&nbsp;
+&nbsp;    //register user
+&nbsp;    public Users registerUser(Users users);
+&nbsp;
+&nbsp;    //modify user based on email
+&nbsp;    public Users modifyUser(String email, Users users);
+&nbsp;
+&nbsp;    //delete user based on id
+&nbsp;    public void deleteUser(Long id);
+&nbsp;
+&nbsp;    //get all users
+&nbsp;    public List&lt;Users&gt; getAllUsers();
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-06 17:09</div>
+</div>
+</body>
+</html>
